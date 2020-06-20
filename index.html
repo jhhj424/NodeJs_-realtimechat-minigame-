@@ -1,0 +1,13 @@
+<!-- index.html -->
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('https://nodejssocketio-uujlo.run.goorm.io/');
+			//구름ide 이용자는 localhost가 아닌 자신의 url을 입력. ex) http://test-1.run.goorm.io/ 
+
+socket.on('news', function (data) {
+	console.log(data);
+	socket.emit('client login', { clientData : '클라이언트 접속' });
+});
+	   
+</script>
