@@ -30,7 +30,9 @@ io.on('connection', function(socket){  // 채팅방에 접속했을 때 - 1
 	socket.on('send message', function(name, text){  // 메세지를 보냈을 때 - 3 
 		var msg = name + ' : ' + text; // 사용자가 전송 버튼을 눌러서 메세지를 보냈을 경우, 채팅방에 출력해줄 메세지를 msg 변수에 넣어준다. 여기서는 닉네임과 메세지를 합쳐준다
 		if (name != socket.name) {
+			socket.name = name;
 			io.emit('change name', socket.name, name);
+			io.emit('receive message', msg); //  receive message 라는 이벤트를 발생시키고 메세지를 전달해 준다
 		} else {
 			console.log(msg); // 서버 콘솔에 메세지를 출력
 			io.emit('receive message', msg); //  receive message 라는 이벤트를 발생시키고 메세지를 전달해 준다

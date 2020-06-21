@@ -36,7 +36,7 @@ html
       });
 	  
       socket.on('change name', function(oldname, name){ 
-      $('#name').val(name);
+      //$('#name').val(name);
       $('#chatLog').append('<알림> ' + oldname + '님이 ' + name +'님으로 닉네임을 변경했습니다.\n');
       });
 
